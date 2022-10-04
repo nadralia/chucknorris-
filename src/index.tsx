@@ -8,11 +8,14 @@ import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 
 import Favourites from "./routes/FavouritesScreen";
 import HomeScreen from "./routes/HomeScreen";
+import SearchComponent from "./components/Search";
 import ROUTES from "./constants/routes";
+import JokeDetail from "./components/JokeDetail";
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createNativeStackNavigator();
 const FavouritesStack = createNativeStackNavigator();
+const SearchStack = createNativeStackNavigator();
 
 const styles = StyleSheet.create({
   container: {
@@ -36,6 +39,13 @@ const HomeStackScreen = () => {
         }}
       />
       <HomeStack.Screen name="Favourites" component={Favourites} />
+      <HomeStack.Screen
+        options={{
+          headerShown: false,
+        }}
+        name={ROUTES.MAIN_JOKE}
+        component={JokeDetail}
+      />
     </HomeStack.Navigator>
   );
 };
@@ -56,6 +66,25 @@ const FavouritesStackScreen = () => {
         }}
       />
     </FavouritesStack.Navigator>
+  );
+};
+
+const SearchStackScreen = () => {
+  return (
+    <SearchStack.Navigator>
+      <SearchStack.Screen
+        name={ROUTES.MAIN_SEARCH}
+        component={SearchComponent}
+        options={{
+          title: "Search",
+          headerTintColor: "#0e8df2",
+          headerShown: false,
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
+    </SearchStack.Navigator>
   );
 };
 
@@ -86,6 +115,20 @@ const App = () => {
               tabBarIcon: ({ focused }) => (
                 <FontAwesome
                   name="list"
+                  size={30}
+                  color={focused ? "#0e8df2" : "#c8e5fc"}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Search"
+            component={SearchStackScreen}
+            options={{
+              title: "Search",
+              tabBarIcon: ({ focused }) => (
+                <FontAwesome
+                  name="search"
                   size={30}
                   color={focused ? "#0e8df2" : "#c8e5fc"}
                 />

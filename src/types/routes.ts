@@ -9,4 +9,6 @@ export type ParamList = {
   // MAIN ROUTE ENTRY
   [ROUTES.MAIN_HOME]: undefined;
   [ROUTES.MAIN_FAVOURITES]: undefined;
+  [ROUTES.MAIN_JOKE]: undefined;
+  [ROUTES.MAIN_SEARCH]: undefined;
 };
