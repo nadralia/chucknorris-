@@ -6,6 +6,7 @@ import SearchComponent from "../../components/Search";
 
 const HomeView = () => {
   const [categories, setCategories] = React.useState([]);
+  const [searching , setSearching] = React.useState("");
   const getCategories = async () => {
     const response = await fetch("https://api.chucknorris.io/jokes/categories");
     const data = await response.json();

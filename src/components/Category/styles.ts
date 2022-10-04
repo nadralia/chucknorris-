@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   text: {
-    color: "#fff",
+    color: "#",
     fontSize: 16,
     marginBottom: 20,
     alignItems: "center",
